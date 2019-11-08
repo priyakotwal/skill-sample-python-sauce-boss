@@ -59,6 +59,8 @@ def get_locale_specific_recipes(locale):
     """
     Returns the recipe dictionary for a specific locale
     """
+    if locale[:2] in recipes.translations:
+        return recipes.translations[locale[:2]]
     return recipes.translations[locale[:2]]
 
 
