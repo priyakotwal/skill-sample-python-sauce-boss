@@ -19,9 +19,9 @@ def _load_apl_document(file_path):
 
 
 APL_DOCS = {
-    'launch': _load_apl_document('./documents/launchRequest.json'),
-    'recipe': _load_apl_document('./documents/recipeIntent.json'),
-    'help': _load_apl_document('./documents/helpIntent.json')
+    'launch': _load_apl_document('./apl/launchRequest.json'),
+    'recipe': _load_apl_document('./apl/recipeIntent.json'),
+    'help': _load_apl_document('./apl/helpIntent.json')
 }
 
 
