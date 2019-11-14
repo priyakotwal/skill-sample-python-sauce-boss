@@ -198,7 +198,7 @@ class RepeatIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         session_attr = handler_input.attributes_manager.session_attributes
-        logger.info("Session Attr: {}".format(session_attr))
+        logger.debug("Session Attr: {}".format(session_attr))
         # get the last response stored in session_attributes and return it
         cached_response_str = json.dumps(session_attr["recent_response"])
         cached_response = DefaultSerializer().deserialize(
@@ -234,7 +234,7 @@ class SessionEndedRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # Any cleanup logic goes here
-        logger.info("~~~~ Session ended: {}".format(
+        logger.debug("~~~~ Session ended: {}".format(
             str(handler_input.request_envelope)))
         return handler_input.response_builder.response
 
@@ -261,7 +261,7 @@ class RequestLogger(AbstractRequestInterceptor):
 
     def process(self, handler_input):
         # type: (HandlerInput) -> None
-        logger.info("Request Envelope: {}".format(
+        logger.debug("Request Envelope: {}".format(
             handler_input.request_envelope))
 
 
@@ -362,7 +362,7 @@ class ResponseLogger(AbstractResponseInterceptor):
 
     def process(self, handler_input, response):
         # type: (HandlerInput, Response) -> None
-        logger.info("Response: {}".format(response))
+        logger.debug("Response: {}".format(response))
 
 
 # register request / intent handlers
