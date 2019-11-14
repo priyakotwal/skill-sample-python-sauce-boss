@@ -64,7 +64,7 @@ class RecipeIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # Get slot item
-        sauce_item = recipe_utils.get_suace_item(
+        sauce_item = recipe_utils.get_sauce_item(
             handler_input.request_envelope.request)
         # Generate output to include a recipe with or without APL
         return self.generate_recipe_output(handler_input, sauce_item)
@@ -147,7 +147,7 @@ class PreviousHandler(AbstractRequestHandler):
                     # Re-Add the actionnable request in history to remember the latest displayed or heard
                     actionnable_history.append(replay_request)
                     # Get sauce item from the request history not current request
-                    sauce_item = recipe_utils.get_suace_item(replay_request)
+                    sauce_item = recipe_utils.get_sauce_item(replay_request)
                     return RecipeIntentHandler().generate_recipe_output(handler_input, sauce_item)
                 if(replay_request['type'] == 'IntentRequest' and replay_request.intent['name'] == 'AMAZON.HelpIntent'):
                     # Re-Add the actionnable request in history to remember the latest displayed or heard
